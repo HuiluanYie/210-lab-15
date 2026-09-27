@@ -8,23 +8,23 @@ using namespace std;
 
 class Movie {
     string screen_writer;
-    int year_released;
+    string year_released;
     string title;
 
     public:
     // setter
     void set_screen_writer(string s)    { screen_writer = s; }
-    void set_year_released(int y)  { year_released = y; }
+    void set_year_released(string y)  { year_released = y; }
     void set_title(string t)   { title = t; }
 
     // getter
     string get_screen_writer()   { return screen_writer; }
-    int get_year_released() { return year_released; }
+    string get_year_released() { return year_released; }
     string get_title()  { return title; }
 
     // other methods
     void print() {
-        cout << "Movie: " << title << endl;
+        cout << "\nMovie: " << title << endl;
         cout << "\tYear released: " << year_released << endl;
         cout << "\tScreenwriter: " << screen_writer << endl;
     }
@@ -33,14 +33,30 @@ class Movie {
 
 int main() {
     // declarations
-    v
+    vector<Movie> movies;
+    string sw;
+    string yr;
+    string t;
+    Movie temp_m;
 
+    // file input
     ifstream fin;
     fin.open("210-lab-15-movie.txt");
     if (fin.good()) {
-        while (getline(fin, screen_writer))
+        while (getline(fin, sw))
         {
-            /* code */
+            temp_m.set_screen_writer(sw);
+            getline(fin, yr);
+            temp_m.set_year_released(yr);
+            getline(fin, t);
+            temp_m.set_title(t);
+            movies.push_back(temp_m);
+        }
+
+        // output
+        for (Movie m:movies)
+        {
+            m.print
         }
         
     }
